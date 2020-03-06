@@ -1,13 +1,15 @@
 package com.chenzhenhui.aicloud.entity.result;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.util.List;
 
 /**
- * 一张图片的检测结果封装类
+ * the wrapper class of the detected results of image
  */
+@Accessors(chain = true)
 @Data
 public class DetectionResult implements Serializable {
     private String imageId;

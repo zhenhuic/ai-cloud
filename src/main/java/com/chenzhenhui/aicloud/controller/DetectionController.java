@@ -2,6 +2,7 @@ package com.chenzhenhui.aicloud.controller;
 
 import com.chenzhenhui.aicloud.entity.ImageData;
 import com.chenzhenhui.aicloud.service.impl.ObjectDetectionService;
+import com.chenzhenhui.aicloud.utils.BytesUtil;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,18 +32,13 @@ public class DetectionController {
         }
 
         String originalFilename = file.getOriginalFilename();
-
         byte[] bytes = file.getBytes();
         System.out.println(originalFilename);
         System.out.println(bytes.length);
 
         ImageData imageData = new ImageData();
         imageData.setImageId("1");
-        Byte[] pBytes = new Byte[bytes.length];
-        for (int i = 0; i < bytes.length; i++) {
-            pBytes[i] = bytes[i];
-        }
-        imageData.setData(pBytes);
+        imageData.setData(BytesUtil.byteArrayBoxing(bytes));
 
         return objectDetectionService.detect(imageData);
 

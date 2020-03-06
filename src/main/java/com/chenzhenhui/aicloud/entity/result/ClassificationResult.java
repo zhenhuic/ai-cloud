@@ -1,12 +1,14 @@
 package com.chenzhenhui.aicloud.entity.result;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
 /**
- * 图像分类的结果封装类
+ * The wrapper class of the classification result of image
  */
+@Accessors(chain = true)
 @Data
 public class ClassificationResult implements Serializable {
     private String imageId;

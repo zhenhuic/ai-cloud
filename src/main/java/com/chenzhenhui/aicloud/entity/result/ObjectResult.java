@@ -1,19 +1,21 @@
 package com.chenzhenhui.aicloud.entity.result;
 
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 
 /**
- * 检测的物体信息的封装类
+ * The wrapper class for the detected object
  */
+@Accessors(chain = true)
 @Data
 public class ObjectResult implements Serializable {
 
     private String className;
     private Float score;
 
-    // 物体边界框信息
+    // The bounding box
     private Integer left;
     private Integer top;
     private Integer width;
